@@ -1,0 +1,20 @@
+.map-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: auto;
+  height: 80%;
+}
+
+.map {
+  margin-top: 50px;
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  border-radius: 30px;
+  border: thick double #32a1ce;
+}
+
+p {
+  text-align: center;
+}
