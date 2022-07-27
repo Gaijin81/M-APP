@@ -1,23 +1,27 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './map.css';
 
-  function Map(){
+
+
+
+
+  const Map = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng] = useState(2.35596147116408);
-  const [lat] = useState(48.91813795609534);
-  const [zoom] = useState(14);
-  const [API_KEY] = useState('3sLdBYBljYRZg1BNPfzB');
+  const lng = 2.35596147116408;
+  const lat = 48.91813795609534;
+  const zoom = 14;
+  const { MAP_API_KEY } = process.env;
 
   useEffect(() => {
       map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: `https://api.maptiler.com/maps/streets/style.json?key=${API_KEY}`,
+      style: `https://api.maptiler.com/maps/streets/style.json?key=${MAP_API_KEY}`,
       center: [lng, lat],
       zoom: zoom
-    });
+    },[]);
     map.current.addControl(new maplibregl.NavigationControl(), 'top-right');
     new maplibregl.Marker({color: "#FF0000"})
       .setLngLat([2.35596147116408,48.91813795609534])
